@@ -339,6 +339,9 @@ let suppressNextFocusSpeak = false;
 
 function L() { return T[STATE.lang]; }
 function fmt(n) { return '₦' + n.toLocaleString('en-NG'); }
+function speakDigits(numString) {
+  return numString.toString().split('').join(' ');
+}
 
 // ═══════════════════════════════════════════════════════════════
 //  DOM
@@ -725,7 +728,8 @@ function goConfirmTransfer() {
   clearActions();
 
   const l = L();
-  const msg = l.confirmTransferMsg(fmt(STATE.pendingAmount), STATE.pendingAcc);
+  const spokenAcc = speakDigits(STATE.pendingAcc);
+  const msg = l.confirmTransferMsg(fmt(STATE.pendingAmount), spokenAcc);
   setScreen(l.stepConfirm, l.confirmTransferTitle, msg);
 
   addBtn(l.yes, 'success', doTransfer);
@@ -761,7 +765,8 @@ function goReceiptTransfer() {
   const now = new Date();
   const date = now.toLocaleDateString('en-NG');
   const time = now.toLocaleTimeString('en-NG', { hour: '2-digit', minute: '2-digit' });
-  const msg = l.successTransferMsg(fmt(STATE.pendingAmount), STATE.pendingAcc, fmt(STATE.balance));
+  const spokenAcc = speakDigits(STATE.pendingAcc);
+const msg = l.successTransferMsg(fmt(STATE.pendingAmount), spokenAcc, fmt(STATE.balance));
 
   setScreen(l.stepConfirm, l.successTransferTitle, msg, 'success');
   elEcho.textContent = `${l.receiptDate}: ${date}   ${l.receiptTime}: ${time}`;
