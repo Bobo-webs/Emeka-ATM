@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css">
+  <title>Emeka ATM</title>
+</head>
+
+<body>
+
+  <div id="aria-live" aria-live="assertive" aria-atomic="true" role="status"></div>
+
+  <div id="atm" role="application" aria-label="Emeka ATM">
+
+    <div id="atm-header">
+      <h1>Emeka ATM</h1>
+      <p>Tab to navigate &bull; Enter to select</p>
+    </div>
+
+    <div id="screen" role="region" aria-label="ATM Display">
+      <div id="screen-step"></div>
+      <div id="screen-title"></div>
+      <div id="screen-body"></div>
+      <div id="input-echo" aria-live="polite" aria-label="Input display"></div>
+    </div>
+
+    <div id="atm-body">
+      <div id="numpad" class="hidden" role="group" aria-label="Number Keypad">
+        <button class="num-btn" data-val="1">1</button>
+        <button class="num-btn" data-val="2">2</button>
+        <button class="num-btn" data-val="3">3</button>
+        <button class="num-btn" data-val="4">4</button>
+        <button class="num-btn" data-val="5">5</button>
+        <button class="num-btn" data-val="6">6</button>
+        <button class="num-btn" data-val="7">7</button>
+        <button class="num-btn" data-val="8">8</button>
+        <button class="num-btn" data-val="9">9</button>
+        <button class="num-btn" data-val="CLR">CLR</button>
+        <button class="num-btn" data-val="0">0</button>
+        <button class="num-btn" data-val="DEL">DEL</button>
+      </div>
+
+      <div id="actions" role="group" aria-label="Options"></div>
+    </div>
+
+    <div id="footer">
+      <div class="f-row">
+        <span class="f-label">Speed:</span>
+        <select id="speech-rate" class="f-select" aria-label="Speech speed">
+          <option value="0.75">Slow</option>
+          <option value="1" selected>Normal</option>
+          <option value="1.35">Fast</option>
+        </select>
+        <button id="mute-btn" aria-label="Toggle voice">🔊 ON</button>
+      </div>
+      <p id="voice-note">* Igbo, Yoruba &amp; Hausa use Nigerian-English TTS — browsers have no native voice for these
+        languages.</p>
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
