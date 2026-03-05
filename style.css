@@ -281,3 +281,10 @@ body {
   height: 1px;
   overflow: hidden;
 }
+
+.copyright-footer {
+  margin-top: 20px;
+  font-size: 1rem;
+  color: var(--muted);
+  text-align: center;
+}
